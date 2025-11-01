@@ -13,7 +13,10 @@ Este proyecto es un script de línea de comandos (CLI) en Python que analiza una
 
 ## 📂 Estructura del Proyecto
 
-El repositorio está organizado en varios módulos para separar las responsabilidades: TP2-Computacion/ ├── .common/ # Lógica común (protocolo, etc.) ├── .processor/ # Módulos de procesamiento (performance, screenshot) ├── .scraper/ # Módulos de scraping (parser de HTML, extractor de metadatos) ├── tests/ # Pruebas unitarias y de integración ├── .gitignore # Archivo para ignorar 'venv', 'pycache', etc. ├── cli.py # Punto de entrada principal de la aplicación ├── LICENSE # Licencia del proyecto (MIT) ├── readme.md # Este archivo ├── requirements.txt # Lista de dependencias de Python ├── server_processing.py # Lógica del servidor de procesamiento └── server_scraping.py # Lógica del servidor de scraping
+El repositorio está organizado en varios módulos para separar las responsabilidades:
+
+TP2-Computacion/ ├── .common/ # Lógica común (protocolo, etc.) ├── .processor/ # Módulos de procesamiento (performance, screenshot) ├── .scraper/ # Módulos de scraping (parser de HTML, extractor de metadatos) ├── tests/ # Pruebas unitarias y de integración ├── .gitignore # Archivo para ignorar 'venv', 'pycache', etc. ├── cli.py # Punto de entrada principal de la aplicación ├── LICENSE # Licencia del proyecto (MIT) ├── readme.md # Este archivo ├── requirements.txt # Lista de dependencias de Python ├── server_processing.py # Lógica del servidor de procesamiento └── server_scraping.py # Lógica del servidor de scraping
+
 
 ## 🛠️ Instalación
 
