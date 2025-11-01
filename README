@@ -4,11 +4,16 @@ Este proyecto es un script de línea de comandos (CLI) en Python que analiza una
 
 ## 📋 Características Principales
 
-* **Extracción de Metadatos**: Obtiene el título, la descripción y las etiquetas Open Graph (como `og:title`, `og:description`, etc.).
+* **Extracción de Metadatos**: Obtiene el título, la descripción y las etiquetas Open Graph.
 * **Análisis Estructural**: Cuenta la jerarquía de encabezados de la página (`h1`, `h2`, `h3`...).
 * **Recolección de Enlaces**: Lista todos los enlaces (`<a>`) encontrados.
-* **Métricas de Rendimiento**: Mide el tiempo de carga (`load_time_ms`), el tamaño total de la página (`total_size_kb`) y el número de peticiones (`num_requests`).
+* **Métricas de Rendimiento**: Mide el tiempo de carga, el tamaño total de la página y el número de peticiones.
+* **Captura de Pantalla**: Genera un *screenshot* del sitio analizado.
 * **Salida JSON**: Devuelve un informe estructurado y fácil de procesar con todos los datos recolectados.
+
+## 📂 Estructura del Proyecto
+
+El repositorio está organizado en varios módulos para separar las responsabilidades: TP2-Computacion/ ├── .common/ # Lógica común (protocolo, etc.) ├── .processor/ # Módulos de procesamiento (performance, screenshot) ├── .scraper/ # Módulos de scraping (parser de HTML, extractor de metadatos) ├── tests/ # Pruebas unitarias y de integración ├── .gitignore # Archivo para ignorar 'venv', 'pycache', etc. ├── cli.py # Punto de entrada principal de la aplicación ├── LICENSE # Licencia del proyecto (MIT) ├── readme.md # Este archivo ├── requirements.txt # Lista de dependencias de Python ├── server_processing.py # Lógica del servidor de procesamiento └── server_scraping.py # Lógica del servidor de scraping
 
 ## 🛠️ Instalación
 
@@ -30,7 +35,6 @@ Este proyecto es un script de línea de comandos (CLI) en Python que analiza una
     ```
 
 3.  **Instala las dependencias**
-    (Asegúrate de tener tu archivo `requirements.txt` en el repositorio)
     ```bash
     pip install -r requirements.txt
     ```
