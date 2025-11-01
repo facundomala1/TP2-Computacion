@@ -1,0 +1,22 @@
+# Entorno virtual
+venv/
+
+# Caché de Python
+__pycache__/
+
+# Directorio de la herramienta Qodana
+.qodo/
+
+# Archivos de IDE (VSCode, PyCharm)
+.vscode/
+.idea/
+
+# Archivos de log
+*.log
+
+# Archivos de entorno
+.env
+*.env
+
+# Archivos de prueba
+test_screenshot.png

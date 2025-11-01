@@ -1,0 +1,43 @@
+# 🚀 TP2 Computación: Analizador Web CLI
+
+Este proyecto es un script de línea de comandos (CLI) en Python que analiza una URL y extrae información clave sobre su estructura, contenido y rendimiento.
+
+## 📋 Características Principales
+
+* **Extracción de Metadatos**: Obtiene el título, la descripción y las etiquetas Open Graph (como `og:title`, `og:description`, etc.).
+* **Análisis Estructural**: Cuenta la jerarquía de encabezados de la página (`h1`, `h2`, `h3`...).
+* **Recolección de Enlaces**: Lista todos los enlaces (`<a>`) encontrados.
+* **Métricas de Rendimiento**: Mide el tiempo de carga (`load_time_ms`), el tamaño total de la página (`total_size_kb`) y el número de peticiones (`num_requests`).
+* **Salida JSON**: Devuelve un informe estructurado y fácil de procesar con todos los datos recolectados.
+
+## 🛠️ Instalación
+
+1.  **Clona este repositorio**
+    ```bash
+    git clone [https://github.com/facundomala1/TP2-Computacion.git](https://github.com/facundomala1/TP2-Computacion.git)
+    cd TP2-Computacion
+    ```
+
+2.  **(Recomendado) Crea y activa un entorno virtual**
+    ```bash
+    # Para macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+    
+    # Para Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+
+3.  **Instala las dependencias**
+    (Asegúrate de tener tu archivo `requirements.txt` en el repositorio)
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## ⚙️ Modo de Uso
+
+Para analizar un sitio web, ejecuta el script `cli.py` y pasa la URL que deseas analizar como argumento:
+
+```bash
+python3 cli.py [https://www.ejemplo.com](https://www.ejemplo.com)

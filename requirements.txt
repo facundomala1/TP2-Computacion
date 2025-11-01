@@ -1,0 +1,9 @@
+# requirements.txt
+aiohttp
+beautifulsoup4
+lxml
+Pillow
+selenium
+aiofiles
+playwright
+requests
