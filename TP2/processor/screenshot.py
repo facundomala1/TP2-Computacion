@@ -6,11 +6,8 @@ from typing import Union
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 import base64
 
-# 2. MODIFICA ESTA LÍNEA DE LA FUNCIÓN
 def take_screenshot(url: str) -> Union[str, None]:
-    """
-    Toma una captura de pantalla de una URL y la devuelve como una cadena base64.
-    """
+
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)

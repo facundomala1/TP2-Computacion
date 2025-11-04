@@ -1,4 +1,3 @@
-# scraper/html_parser.py
 
 import asyncio
 import aiohttp
@@ -10,22 +9,14 @@ HEADERS = {
 }
 
 async def scrape_page_content(session: aiohttp.ClientSession, url: str) -> dict:
-    """
-    Realiza el scraping de una URL para extraer:
-    - Título
-    - Enlaces
-    - Estructura de encabezados (H1-H6)
-    - Cantidad de imágenes
-    """
+
     try:
-        # --- MODIFICADO: Añadimos la cabecera a la petición ---
         async with session.get(url, timeout=30, headers=HEADERS) as response:
             response.raise_for_status()
             
             html = await response.text()
             soup = BeautifulSoup(html, 'lxml')
 
-            # --- Extracción de datos (sin cambios) ---
             title = soup.title.string.strip() if soup.title else "No Title Found"
             links = [a.get('href') for a in soup.find_all('a', href=True)]
             headers = {f'h{i}': len(soup.find_all(f'h{i}')) for i in range(1, 7)}
@@ -49,11 +40,8 @@ async def scrape_page_content(session: aiohttp.ClientSession, url: str) -> dict:
         print(f"Ocurrió un error inesperado al procesar {url}: {e}")
         return {"error": f"An unexpected error occurred: {e}"}
 
-# --- Bloque de prueba (sin cambios) ---
 async def main():
-    """
-    Función principal para probar el scraper de forma aislada.
-    """
+
     test_url = "https://es.wikipedia.org/wiki/Python"
     print(f"🧪 Probando el scraper con la URL: {test_url}")
     

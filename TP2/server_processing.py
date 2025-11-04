@@ -6,23 +6,17 @@ import json
 import concurrent.futures
 from typing import Union  # Para compatibilidad con Python 3.8
 
-# Importamos las funciones que este servidor sabe ejecutar
 from processor.screenshot import take_screenshot
 from processor.performance import analyze_performance
 
-# Creamos un diccionario para mapear nombres de tareas a funciones
 TASK_REGISTRY = {
     'screenshot': take_screenshot,
     'performance': analyze_performance
 }
 
-# server_processing.py
 
 class TaskHandler(socketserver.BaseRequestHandler):
-    """
-    El manejador de solicitudes para nuestro servidor.
-    Se crea una instancia de esta clase por cada conexión recibida.
-    """
+
 
     def handle(self):
         print(f"▶️ Conexión recibida de: {self.client_address[0]}")
@@ -60,9 +54,7 @@ class TaskHandler(socketserver.BaseRequestHandler):
             # 4. Enviar la tarea al pool de procesos
             future = self.server.process_pool.submit(task_function, url)
             
-            # 5. Obtener el resultado usando .result()
-            #    Aumentamos el timeout a 90s para estar seguros.
-            result = future.result(timeout=90) # <-- ¡AQUÍ ESTÁ EL CAMBIO!
+            result = future.result(timeout=90) 
             
             response = {"status": "success", "data": result}
             print(f"✅ Tarea '{task_name}' completada.")
@@ -77,10 +69,7 @@ class TaskHandler(socketserver.BaseRequestHandler):
 
 
 class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    """
-    Un servidor TCP que maneja cada conexión en un hilo separado.
-    Esto es crucial para que pueda atender a múltiples peticiones del Servidor A a la vez.
-    """
+
     daemon_threads = True
     allow_reuse_address = True
 
@@ -90,10 +79,9 @@ class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
 
 
 def main():
-    HOST, PORT = "localhost", 8081 # Usaremos el puerto 8081 para este servidor
+    HOST, PORT = "localhost", 8081 
 
-    # Crear el pool de procesos que se compartirá entre todas las conexiones
-    # Usará tantos procesos como núcleos de CPU tengas.
+
     with concurrent.futures.ProcessPoolExecutor() as pool:
         print("🚀 Servidor de Procesamiento iniciado.")
         print(f"🏊 Pool de {pool._max_workers} procesos trabajadores creado.")
@@ -107,14 +95,10 @@ if __name__ == "__main__":
     main()
     
 def main():
-    # 1. Crear el parser de argumentos
     parser = argparse.ArgumentParser(description="Servidor de Procesamiento Distribuido")
     parser.add_argument("-i", "--ip", default="localhost", help="Dirección de escucha")
     parser.add_argument("-p", "--port", type=int, default=8081, help="Puerto de escucha")
-    # El enunciado menciona -n para el número de procesos, ProcessPoolExecutor lo elige automáticamente.
-    # Dejarlo así es una implementación válida y eficiente.
 
-    # 2. Parsear los argumentos
     args = parser.parse_args()
 
     # 3. Usar los argumentos para iniciar el servidor
